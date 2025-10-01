@@ -107,7 +107,7 @@ jobs:
         shell: 'pwsh'
         run: terraform apply -auto-approve
 
-    update-staging:
+  update-staging:
     name: Update App Service (Staging)
     runs-on: ubuntu-latest
     needs: deploy-infra
