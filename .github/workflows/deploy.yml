@@ -21,10 +21,11 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'   # <- zmienione z 3.10 na 3.11
 
       - name: Install dependencies
         run: |
+          pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest flake8
 
@@ -106,7 +107,7 @@ jobs:
         shell: 'pwsh'
         run: terraform apply -auto-approve
 
-  update-staging:
+    update-staging:
     name: Update App Service (Staging)
     runs-on: ubuntu-latest
     needs: deploy-infra
